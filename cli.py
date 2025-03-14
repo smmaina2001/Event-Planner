@@ -72,7 +72,30 @@ def view_all_providers():
     else:
         print("No providers found.")
 
+def add_instance():
+    
+    event1 = Event.create(session, "Product promotion", "2025-04-15")
+    event2 = Event.create(session, "Wedding Fair", "2025-05-20")
+    event3 = Event.create(session, "Music Concert", "2025-06-10")
+
+    
+    provider1 = ServiceProvider.create(session, "Catering Service", "Food & Drink")
+    provider2 = ServiceProvider.create(session, "Sound & Lighting", "Event Equipment")
+    provider3 = ServiceProvider.create(session, "Security Service", "Event Security")
+
+    
+    Attendee.create(session, "Bin Amin", event1.id)
+    Attendee.create(session, "Steve Mwangi", event1.id)
+    Attendee.create(session, "Victor Kuria ", event2.id)
+    Attendee.create(session, "Kasongo the 5th", event2.id)
+    Attendee.create(session, "Citizen Wanjiku", event3.id)
+
+    print("Database populated with 3 events, 3 service providers, and 5 attendees.")
+
 def main():
+    
+    add_instance()
+
     while True:
         display_menu()
         choice = input("Choose an option: ")
